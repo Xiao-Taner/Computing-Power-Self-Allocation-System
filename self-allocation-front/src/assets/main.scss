@@ -1,0 +1,55 @@
+// 重置样式 - 用于统一不同浏览器的默认样式，可以使用类似normalize.css或自定义重置样式
+* {
+  margin: 0; // 重置外边距
+  padding: 0; // 重置内边距
+  box-sizing: border-box; // 设置盒模型为边框盒模型
+}
+
+// 基础网站字体和颜色 - 定义常用的字体、颜色、间距等
+$font-base: 'Helvetica Neue', Arial, sans-serif; // 定义基础字体
+$color-primary: #3498db; // 主要颜色
+$color-secondary: #2c3e50; // 次要颜色
+$color-text: #333; // 文本颜色
+
+// 设置根元素字体大小 -> 全局变量
+html {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: $font-base; // 应用基础字体
+  color: $color-text; // 设置文本颜色
+  // font-size: 16px; // 设置基本字体大小
+  background-color: #ffffff; // 设置背景颜色
+  font: 16px/1.5 'Microsoft YaHei'; // 设置字体大小和行高
+  margin: 0;
+  padding: 0;
+}
+
+/* fade-slide动画 - 定义进入和离开时的动画效果 */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.3s;
+  transition:
+    opacity 0.5s,
+    transform 0.5s; // 过渡效果，包括透明度和位置变化
+}
+
+.fade-slide-enter-from {
+  opacity: 0; // 初始透明度为0
+  transform: translateY(20px); // 从上方20px位置开始进入
+}
+
+.fade-slide-leave-to {
+  opacity: 0; // 离开时透明度变为0
+  transform: translateY(-20px); // 向上移动20px
+}

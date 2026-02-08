@@ -1,0 +1,63 @@
+# 服务器基本信息
+server:
+  name: "Edge-Cloud-Scheduler"  # 算力自调配服务器名称
+  host: "10.1.112.65"            # 服务器主机地址
+  api_port: 3100              # API服务端口(前端页面访问)
+  socket_port: 3000           # Socket服务端口(与云边节点通信)
+  user_port: 3200            # 用户请求算力自调配后端的端口
+
+
+# 云边节点的端口服务配置
+external_services:
+  # Ollama服务配置(所有云边节点统一)
+  ollama_port: 11434          # 云边节点上Ollama服务的端口
+  simulation_port: 11434     # 云边节点上仿真解算服务的端口
+
+  # 平行云管理中心配置
+  parallel_cloud:
+    host: "10.1.112.42"         # 平行云管理中心IP地址
+    render_port: 8181         # 云渲染服务端口
+    timeout: 5000            # 请求超时时间(毫秒)
+    # 以下是进入应用的详细渲染参数
+    codeRate: 1500            # 默认码率
+    frameRate: 60            # 默认帧率
+
+
+# 日志配置
+log:
+  level: "info"               # 日志级别: error(错误), warn(警告), info(信息), debug(调试)
+  retention: 14               # 日志保留天数
+  console: true               # 是否在控制台输出
+
+# 调度策略配置
+scheduler:
+  default_strategy: "priority"  # 默认调度策略：priority(优先级调度), load(负载均衡)
+  task_timeout: 300            # 任务超时时间(秒)
+  health_check_interval: 30    # 节点健康检查间隔(秒)
+  load_threshold:              # 负载阈值设置
+    cpu: 80                    # CPU使用率阈值(%)
+    memory: 80                 # 内存使用率阈值(%)
+    gpu: 80                    # GPU使用率阈值(%)
+
+# 任务优先级配置
+task_priority:
+  render: 1                    # 云渲染任务优先级(数字越小优先级越高)
+  simulation: 2                # 仿真解算任务优先级
+  ai_inference: 3              # AI推理任务优先级
+
+# 节点类型权重配置
+node_weights:
+  cloud:                       # 云节点的任务处理权重
+    render: 1.0                # 云节点处理渲染任务的权重
+    simulation: 1.0            # 云节点处理仿真任务的权重
+    ai_inference: 0.8          # 云节点处理AI推理的权重
+  edge:                        # 边缘节点的任务处理权重
+    render: 0.8                # 边缘节点处理渲染任务的权重
+    simulation: 0.8            # 边缘节点处理仿真任务的权重
+    ai_inference: 1.0          # 边缘节点处理AI推理的权重
+
+# 监控配置
+monitoring:
+  enabled: true               # 是否启用监控
+  metrics_interval: 5         # 指标收集间隔(秒)
+  retention_period: 7         # 监控数据保留天数

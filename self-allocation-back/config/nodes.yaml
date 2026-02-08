@@ -1,0 +1,113 @@
+# 云边节点管理配置文件
+
+# 节点距离配置（用于调度权重计算）
+distances:
+  cloud: 100                # 云服务器组模拟距离(km)
+  edge1: 50                 # 边1服务器组模拟距离(km)
+  edge2: 30                 # 边2服务器组模拟距离(km)
+
+# 节点的组ID
+group_id:
+  cloud: "1330154107469561856"
+  edge1: "1330154163534823424"
+  edge2: "1330154202881589248"
+
+# 云服务器组节点配置
+cloud_nodes:
+  # 本机
+  - enabled: false                       # 是否启用
+    name: "cloud-server-1"              # 节点名称
+    ip: "10.1.112.65"                 # 节点IP地址
+    os: "Windows 11"                    # 操作系统
+    description: "Cloud Server 1"        # 节点描述
+    
+  # soft-26-Win
+  - enabled: true                       # 是否启用
+    name: "cloud-server-2"              # 节点名称
+    ip: "10.1.112.48"                    # 节点IP地址
+    os: "Windows server 2022"            # 操作系统
+    description: "Cloud Server 2"        # 节点描述
+    
+  # soft27
+  - enabled: true                       # 是否启用
+    name: "cloud-server-3"              # 节点名称
+    ip: "10.1.112.46"                    # 节点IP地址
+    os: "Ubuntu 22.04"                   # 操作系统
+    description: "Cloud Server 3"        # 节点描述
+    
+
+  - enabled: false                       # 是否启用
+    name: "cloud-server-4"              # 节点名称
+    ip: "192.168.1.104"                    # 节点IP地址
+    os: "Ubuntu 22.04"                   # 操作系统
+    description: "Cloud Server 4"        # 节点描述
+    
+
+  - enabled: false                       # 是否启用
+    name: "cloud-server-5"              # 节点名称
+    ip: "192.168.1.105"                    # 节点IP地址
+    os: "Ubuntu 22.04"                   # 操作系统
+    description: "Cloud Server 5"        # 节点描述
+    
+
+# 边1服务器组节点配置
+edge1_nodes:
+  # soft-25-Win
+  - enabled: true                       # 是否启用
+    name: "edge1-server-1"              # 节点名称
+    ip: "10.1.112.81"                    # 节点IP地址
+    os: "Windows server 2022"            # 操作系统
+    description: "Edge1 Server 1"        # 节点描述
+    
+  # my4080
+  - enabled: true                       # 是否启用
+    name: "edge1-server-2"              # 节点名称
+    ip: "10.1.112.63"                    # 节点IP地址
+    os: "Ubuntu 22.04"                   # 操作系统
+    description: "Edge1 Server 2"        # 节点描述
+    
+
+  - enabled: false                       # 是否启用
+    name: "edge1-server-3"              # 节点名称
+    ip: "192.168.2.103"                    # 节点IP地址
+    os: "Ubuntu 22.04"                   # 操作系统
+    description: "Edge1 Server 3"        # 节点描述
+    
+
+# 边2服务器组节点配置
+edge2_nodes:
+  - enabled: true                       # 是否启用
+    name: "edge2-server-1"              # 节点名称
+    ip: "10.1.112.65"                    # 节点IP地址
+    os: "Windows 11"            # 操作系统
+    description: "Edge2 Server 1"        # 节点描述
+    
+
+  - enabled: true                        # 是否启用
+    name: "edge2-server-2"               # 节点名称
+    ip: "192.168.31.133"                 # 节点IP地址
+    os: "Windows 11"                     # 操作系统
+    description: "Edge2 Server 2"        # 节点描述
+    
+
+  - enabled: false                       # 是否启用
+    name: "edge2-server-3"              # 节点名称
+    ip: "192.168.3.102"                    # 节点IP地址
+    os: "Ubuntu 22.04"                   # 操作系统
+    description: "Edge2 Server 3"        # 节点描述
+    
+
+  - enabled: false                       # 是否启用
+    name: "edge2-server-3"              # 节点名称
+    ip: "192.168.3.103"                    # 节点IP地址
+    os: "Ubuntu 22.04"                   # 操作系统
+    description: "Edge2 Server 3"        # 节点描述
+    
+
+# 节点连接配置
+connection:
+  retry_interval: 5000                  # 重连间隔(毫秒)
+  max_retry_times: 3                    # 最大重试次数
+  heartbeat_interval: 30000             # 心跳包间隔(毫秒)
+  collection_interval: 5000            # 数据收集间隔(毫秒)
+  timeout: 60000                        # 超时时间(毫秒) 

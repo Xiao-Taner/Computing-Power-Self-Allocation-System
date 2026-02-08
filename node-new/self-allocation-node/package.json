@@ -1,0 +1,22 @@
+{
+  "name": "edge-cloud-monitor",
+  "version": "1.0.0",
+  "description": "Edge-Cloud Communication Monitor",
+  "main": "node.js",
+  "scripts": {
+    "start": "node node.js",
+    "build": "node scripts/build.js",
+    "install": "node scripts/install.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "socket.io-client": "^4.8.1",
+    "systeminformation": "^5.25.11",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0",
+    "yaml": "^2.7.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
